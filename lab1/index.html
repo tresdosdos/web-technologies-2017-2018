@@ -2,68 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Верстка google forms</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
 <body>
-<div class="all">
-<div class="banner"></div>
-<div class="forma">
-    <h1>Password request form</h1>
-    <form methon="post">
-        <div class="namediv">
-        <h2>Please fill your name<span class="zvezd">*</span></h2>
-        <input type="text" class="inputs"/>
-        </div>
-        <div class="divs">
-        <h2>What color you like?<span class="zvezd">*</span></h2>
-        <p><input type="radio" name="Red" />   Red</p>
-        <p><input type="radio" name="Green" />   Green</p>
-        <p><input type="radio" name="Blue" />   Blue</p>
-        <p><input type="radio" name="Black" />   Black</p>
-        <p><input type="radio" name="White" />   White</p>
-        <p><input type="radio" name="Other" />   Other:
-            <input type="text" class="inputs">
-        </p>
-        </div>
-        <div class="divs">
-        <h2>What town you like more?<span class="zvezd">*</span></h2>
-        <select>
-            <option value="Brest">Brest</option>
-            <option value="Minsk">Minst</option>
-            <option value="Grodno">Grodno</option>
-            <option value="Mogilev">Mogilev</option>
-            <option value="Vitebsk">Vitebsk</option>
-            <option value="Gomel">Gomel</option>
-        </select>
-        </div>
-        <div class="divs">
-        <h2>Please describe (at least 50 symbols on symbols) your favorite programming language <span class="zvezd">*</span></h2>
-        <input type="text" class="inputs" style="width: 500px;">
-        </div>
-        <div class="divs">
-        <h2>What years of education did you really like? <span class="zvezd">*</span></h2>
-        <p><input type="checkbox" name="First">   First</p>
-        <p><input type="checkbox" name="Second">   Second</p>
-        <p><input type="checkbox" name="Third">   Third</p>
-        <p><input type="checkbox" name="Fourth">   Fourth</p>
-        </div>
-        <div class="divs">
-        <h2>Please send any image<span class="zvezd">*</span></h2>
-        <input type="file" name="addfile">
-        </div>
-        <div class="divs">
-        <h2>Set last Monday<span class="zvezd">*</span></h2>
-        <input type="date" name="datetime">
-        </div>
-        <div class="subdiv"> <input type="submit"></div>
-    </form>
-</div>
-</div>
-<footer>Google lijet piski
-    <br/>
-    <br/>
-<img src="logo.svg"/>
+<header>
+    <h1>Запросить права на редактирование</h1>
+</header>
+<main>
+    <div class="banner"></div>
+    <div class="forms">
+        <h1>Password request form</h1>
+        <p>После загрузки файлов и отправки формы данные, связанные с Вашим аккаунтом Google (имя и фотография), будут записаны. Вы не vitaliystrelok8@gmail.com? <a href="#">Сменить аккаунт</a></p>
+        <br/>
+        <p class="asterisk">* Обязательно</p>
+        <form method="post">
+            <section>
+                <h2>Please fill your name<span class="asterisk">*</span></h2>
+                <input type="text" name="inputName"/>
+            </section>
+            <section>
+                <h2>What color you like?<span class="asterisk">*</span></h2>
+                <p><input type="radio" name="inputRadioRed"/>   Red</p>
+                <p><input type="radio" name="inputRadioGreen"/>   Green</p>
+                <p><input type="radio" name="inputRadioBlue"/>   Blue</p>
+                <p><input type="radio" name="inputRadioBlack"/>   Black</p>
+                <p><input type="radio" name="inputRadioWhite"/>   White</p>
+                <p><input type="radio" name="inputRadioOther"/>
+                    Other:<input type="text" name="inputOther">
+                </p>
+            </section>
+            <section>
+                <h2>What town you like more?<span class="asterisk">*</span></h2>
+                <select title="selectTown">
+                    <option value="Brest">Brest</option>
+                    <option value="Minsk">Minsk</option>
+                    <option value="Grodno">Grodno</option>
+                    <option value="Mogilev">Mogilev</option>
+                    <option value="Vitebsk">Vitebsk</option>
+                    <option value="Gomel">Gomel</option>
+                </select>
+                </section>
+            <section>
+                <h2>Please describe (at least 50 symbols on symbols) your favorite programming language <span class="asterisk">*</span></h2>
+                <input type="text" name="inputProgramming">
+            </section>
+            <section>
+                <h2>What years of education did you really like? <span class="asterisk">*</span></h2>
+                <p><input type="checkbox" name="inputFirst">   First</p>
+                <p><input type="checkbox" name="inputSecond">   Second</p>
+                <p><input type="checkbox" name="inputThird">   Third</p>
+                <p><input type="checkbox" name="inputFourth">   Fourth</p>
+            </section>
+            <section>
+                <h2>Please send any image<span class="asterisk">*</span></h2>
+                <input type="file" name="inputFile">
+            </section>
+            <section>
+                <h2>Set last Monday<span class="asterisk">*</span></h2>
+                <input type="date" name="inputDate"/>
+            </section>
+            <input type="submit" name="inputSubmit">
+        </form>
+    </div>
+</main>
+<footer>
+    <img src="logo.svg"/>
 </footer>
 </body>
 </html>
