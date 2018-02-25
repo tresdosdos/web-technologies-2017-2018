@@ -1,78 +1,142 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*---------------------------------------------------------------------------*/
+
+h1{
+    font: 36px bold Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+
+h2{
+    font: 28px bold Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+
 body{
-    background: rgb(237,231,246);
+    background: #ede7f6;
 }
 
-footer{
-    margin-left: auto;
-    margin-right: auto;
-    width:640px;
-    margin-top:-35px;
-    text-align: center;
+header{
+    background-color: #8a2be2;
+    height: 270px;
 }
 
-.namediv{
-    padding-bottom: 35px ;
+header h1{
+    background-color: #ee82ee;
+    border-radius: 5px;
+    color: #000000;
+    font: 14px Roboto,RobotoDraft,Helvetica,Arial,sans-serif, bold;
+    padding: 10px;
+    position: absolute;
+    right:10px;
+    text-transform: uppercase;
+    top:10px;
+    word-spacing: 1px;
 }
 
-.divs{
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.all{
-    margin-top: 35px;
+main{
+    margin: -95px auto 0 auto;
     width: 640px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .banner{
-    background: violet;
+    background: #ee82ee;
     height: 15px;
     margin-bottom: -50px;
 }
 
-.forma{
-    font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    background-color: white;
+.forms{
+    background-color: #ffffff;
     box-shadow:0 1px 4px 0 rgba(0,0,0,0.37);
+    font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     margin: 50px auto 50px auto;
     padding: 10px 25px 10px 25px;
 }
 
-.forma h1,h2{
+.forms h1,h2{
     font-weight: lighter;
+    margin: 10px 0;
 }
 
-.forma p{
-
-    font-size: 20px;
+.forms p{
+    font-size: 14px;
     margin-left: 10px;
 }
 
-.forma li{
-    padding:5px;
+section{
+    padding: 20px 0;
 }
 
-.zvezd{
-    color:red;
+.asterisk{
+    color:#ff0000;
 }
 
-.inputs{
-    border-top: 0px;
-    border-right: 0px;
-    border-left: 0px;
-    border-bottom: 1px dotted grey;
+input[type="text"]{
+    border: 0;
+    border-bottom: 1px solid #ede7f6;
     width:350px;
 }
 
-.subdiv input{
-    padding-top:5px;
-    padding-bottom: 5px;
-    padding-left: 15px;
-    padding-right:15px;
-    border: 2px solid black;
+input[type="radio"]{
+    margin: 15px 0;
+    padding: 5px;
+}
+
+input[type="checkbox"]{
+    margin: 15px 0;
+    padding: 5px;
+}
+
+input[type="submit"]{
     background: #2a56c6;
-    color:white;
+    border: 2px solid #000000;
+    color:#ffffff;
     margin-left: 240px;
+    padding: 5px 15px;
+}
+
+footer{
+    margin: -35px auto 0 auto;
+    text-align: center;
+    width:640px;
 }
