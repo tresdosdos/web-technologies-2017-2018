@@ -1,0 +1,482 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a{
+    text-decoration: none;
+}
+/*/////////////////////////////////////////////////*/
+
+header{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    background: #00979d;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+nav{
+    display: flex;
+    height: 70px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+}
+
+.logo:hover{
+    animation: lianim 0.5s forwards ease-in-out;
+}
+
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul:after {
+    display: block;
+    content: ' ';
+    clear: both;
+    float: none;
+}
+ul.menu > li {
+    float: left;
+    position: relative;
+}
+ul.menu > li > a {
+    display: block;
+    padding: 27px 10px;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+}
+ul.menu > li > a:hover {
+    animation: lianim 0.5s forwards ease-in-out;
+}
+
+ul.submenu {
+    display: none;
+    position: absolute;
+    top: 70px;
+}
+
+ul.submenu > li {
+    display: block;
+}
+
+ul.submenu > li > a {
+    display: block;
+    padding: 10px;
+    color: #00979d;
+    background-color: #7fcbcd;
+    text-decoration: none;
+    border: 1px solid #95dde6;
+    }
+
+ul.submenu > li > a:hover {
+    text-decoration: underline;
+}
+
+ul.menu > li:hover > ul.submenu {
+    display: block;
+}
+
+.coop{
+    display: flex;
+    align-items: center;
+}
+
+.shopping,.search{
+    padding: 10px 0;
+}
+
+.shopping:hover,.search:hover{
+    animation: lianim 0.5s forwards ease-in-out;
+}
+
+.smallMenu{
+    display: none;
+}
+
+.mainContent{
+    display: flex;
+    margin: 100px auto 0 auto;
+    max-width: 1030px;
+    font-family: "Typonine Sans Light", "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+aside section + section{
+    background: none;
+    margin-left: -5px;
+    animation: none;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+aside section{
+    padding: 15px 20px;
+}
+
+aside section a{
+    text-transform: uppercase;
+    color: #ffffff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0 0 10px 0;
+}
+
+aside > section > h1{
+    padding: 5px 10px;
+}
+
+.comments{
+    margin: 20px 15px;
+}
+
+.comments h1{
+    background-color: #00979d;
+    color: #ffffff;
+    font-size: 24px;
+    text-transform: uppercase;
+    width: 70%;
+    padding: 5px;
+}
+
+.comments p{
+    letter-spacing: 1px;
+}
+
+.social{
+    margin: 20px 15px;
+}
+
+.social a{
+    color: #00979d;
+}
+
+.social li{
+    margin: 5px 5px;
+    padding: 10px;
+}
+
+
+.social li:hover{
+    animation: socialhover 0.3s forwards;
+}
+
+.social img{
+    width: 20px;
+    vertical-align: bottom;
+}
+
+.firstBanner{
+    background: #e67e22;
+}
+
+.secondBanner{
+    background-color: #00979d;
+}
+
+.thirdBanner{
+    background-color: #bcac99;
+}
+
+.firstBanner:hover{
+    animation: firstBannerFigure .3s ease-out forwards;
+}
+
+.secondBanner:hover{
+    animation: secondBannerFigure .3s ease-out forwards;
+}
+
+.thirdBanner:hover{
+    animation: thirdBannerFigure .3s ease-out forwards;
+}
+
+main{
+    display: flex;
+    flex-flow: wrap;
+}
+
+main section, aside section{
+    background-color: #ecf1f1;
+    color: #00979d;
+    margin: 5px 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    width: 300px;
+    height: 90%;
+    text-align: center;
+}
+
+main section p{
+    margin: 10% 0;
+    padding: 20px 0;
+    font-size: 22px;
+}
+
+main section img{
+    width: 100%;
+    height: 100%;
+}
+
+
+main figure:before{
+    position: absolute;
+    color: #ffffff;
+    background-color: #00979d;
+    padding: 10px;
+    display: inline;
+    content: 'BLOG';
+}
+
+
+.hoverBlue:hover{
+    animation: hoverblue 0.3s linear forwards;
+}
+
+.hoverBlack:hover{
+    animation: hoverblack 0.3s linear forwards;
+}
+
+footer{
+    width: 100%;
+    background-color: #00979d;
+    max-height: 10%;
+}
+
+footer section{
+    margin: 20px 20px;
+}
+
+.firstFooter section a{
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+footer section p{
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.firstFooter a:hover{
+    color:#f1c40f;
+}
+
+footer section h3{
+    margin: 15px 0;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.subscribe{
+    width: 80%;
+}
+
+footer section input[type="email"]{
+    width: 60%;
+    height: 30px;
+}
+
+footer section button{
+    background: #008184;
+    letter-spacing: 2px;
+    box-shadow: 1px 2px 4px #000000;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+}
+
+footer button:hover{
+    animation: buttonHover 0.5s ease-out forwards;
+}
+
+.buttonUp{
+    margin-right: 30px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+
+.firstFooter{
+   display: flex;
+   max-height: 30%;
+}
+
+
+.secondFooter{
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    max-height: 10%;
+}
+
+.socialFooter{
+    display: flex;
+    justify-content: space-around;
+    width: 250px;
+}
+
+.socialFooter img{
+    width: 25px;
+    height: 25px;
+}
+
+@media screen and (max-width: 1080px) {
+    nav{
+        display: none;
+    }
+
+    .smallMenu{
+        display: flex;
+    }
+
+    .smallMenu ul{
+        width: 100%;
+    }
+
+    aside{
+        margin: 100px auto 10px auto;
+        width: 100%;
+    }
+
+    aside section{
+        margin: 0 auto;
+        width: 89%;
+    }
+
+    aside section + section{
+        margin: 0 15px
+    }
+
+    .comments,.social, .sign{
+        display: none;
+    }
+
+    .mainContent{
+        flex-flow: column wrap;
+        margin-top: 0;
+    }
+
+    main{
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    main a{
+        flex-basis: 45%;
+        margin: 0 auto 10px auto;
+    }
+
+    main a section{
+        width: 95%;
+    }
+}
+
+/*Переписать кейфреймы на транзишны*/
+
+@keyframes lianim {
+    from {background: #00979d;}
+    to {background: #7fcbcd;;
+    color: #00979d;}
+}
+
+@keyframes hoverblue {
+    to{
+        background-color: #80cbcd;
+        color:white;
+    }
+}
+
+@keyframes hoverblack {
+    to{
+        opacity: 0.5;
+    }
+}
+
+@keyframes firstBannerFigure {
+    to{
+        box-shadow: inset -70px 0 0 0 #f39c12;
+    }
+}
+
+@keyframes secondBannerFigure {
+    to{
+        box-shadow: inset -70px 0 0 0 #7fcbcd;
+    }
+}
+
+@keyframes thirdBannerFigure {
+    to{
+        box-shadow: inset -70px 0 0 0 #9e846d;
+    }
+}
+
+@keyframes socialhover {
+   to{
+       margin-left: 15px;
+   }
+}
+
+@keyframes buttonHover{
+    to{
+        box-shadow: 0 0 0;
+    }
+}
