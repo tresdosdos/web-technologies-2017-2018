@@ -45,6 +45,10 @@ a{
 }
 /*/////////////////////////////////////////////////*/
 
+body{
+    font-family:  "Typonine Sans Regular", "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
 header{
     display: flex;
     justify-content: space-between;
@@ -143,7 +147,8 @@ ul.menu > li:hover > ul.submenu {
 aside section + section{
     animation: none;
     background: none;
-    margin-left: -5px;
+    margin: 0;
+    padding: 10px 15px;
 }
 
 aside{
@@ -363,17 +368,17 @@ footer button:hover{
     width: 25px;
 }
 
-@media screen and (max-width: 1080px) {
+@media (max-width: 1145px) {
     nav{
         display: none;
     }
 
-    .smallMenu{
-        display: flex;
+    .shopping, .search{
+        padding: 30px;
     }
 
-    .smallMenu ul{
-        width: 100%;
+    .smallMenu{
+        display: block;
     }
 
     aside{
@@ -382,12 +387,22 @@ footer button:hover{
     }
 
     aside section{
-        margin: 0 auto;
-        width: 89%;
+        margin: 20px auto;
+        padding: 0;
+        width: 93%;
     }
 
     aside section + section{
-        margin: 0 15px
+        display: flex;
+        flex-direction: row;
+        margin: 10px auto;
+        padding: 0;
+        width: 95%;
+    }
+
+    aside section + section a{
+        height: 100px;
+        margin: 0 10px;
     }
 
     .comments,.social, .sign{
@@ -412,6 +427,25 @@ footer button:hover{
 
     main a section{
         width: 95%;
+    }
+}
+
+@media (max-width: 600px) {
+    aside section + section{
+        flex-wrap: wrap;
+    }
+
+    aside section+ section a{
+        height: 50%;
+        margin: 5px auto;
+    }
+
+    main a{
+        flex-basis: 90%;
+    }
+
+    footer .firstFooter .subscribe input[type="email"]{
+        width: 100%;
     }
 }
 
