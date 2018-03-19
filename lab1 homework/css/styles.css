@@ -1,0 +1,499 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a{
+    text-decoration: none;
+}
+/*/////////////////////////////////////////////////*/
+
+body{
+    font-family:  "Typonine Sans Regular", "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    background: #00979d;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.logo{
+    align-items: center;
+    display: flex;
+    padding: 10px 10px;
+}
+
+.logo:hover{
+    animation: lianim 0.5s forwards ease-in-out;
+}
+
+nav{
+    display: flex;
+    height: 70px;
+}
+
+ul {
+    display: block;
+    list-style: none;
+}
+
+ul.menu > li {
+    float: left;
+}
+
+ul.menu > li > a {
+    color: #ffffff;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 27px 10px;
+    text-transform: uppercase;
+}
+
+ul.menu > li > a:hover {
+    animation: lianim 0.5s forwards ease-in-out;
+}
+
+ul.submenu {
+    display: none;
+    position: absolute;
+    top: 70px;
+}
+
+
+ul.submenu > li > a {
+    background-color: #7fcbcd;
+    border: 1px solid #95dde6;
+    color: #00979d;
+    display: block;
+    padding: 10px;
+    }
+
+ul.submenu > li > a:hover {
+    text-decoration: underline;
+}
+
+ul.menu > li:hover > ul.submenu {
+    display: block;
+}
+
+.coop{
+    align-items: center;
+    display: flex;
+}
+
+.shopping,.search{
+    padding: 10px 0;
+}
+
+.shopping:hover,.search:hover{
+    animation: lianim 0.5s forwards ease-in-out;
+}
+
+.smallMenu{
+    display: none;
+}
+
+.mainContent{
+    display: flex;
+    font-family: "Typonine Sans Light", "Lucida Grande", Lucida, Verdana, sans-serif;
+    margin: 100px auto 0 auto;
+    max-width: 1030px;
+}
+
+aside section + section{
+    animation: none;
+    background: none;
+    margin: 0;
+    padding: 10px 15px;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+aside section{
+    padding: 15px 20px;
+}
+
+aside section a{
+    align-items: center;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+    padding: 0 20px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+aside > section > h1{
+    padding: 5px 10px;
+}
+
+.comments{
+    margin: 20px 15px;
+}
+
+.comments h1{
+    background-color: #00979d;
+    color: #ffffff;
+    font-size: 24px;
+    padding: 5px;
+    text-transform: uppercase;
+    width: 70%;
+}
+
+.comments p{
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.social{
+    margin: 20px 15px;
+}
+
+.social a{
+    color: #00979d;
+}
+
+.social li{
+    margin: 5px 5px;
+    padding: 10px;
+}
+
+
+.social li:hover{
+    animation: socialhover 0.3s forwards;
+}
+
+.social img{
+    vertical-align: bottom;
+    width: 20px;
+}
+
+.firstBanner{
+    background: #e67e22;
+}
+
+.secondBanner{
+    background-color: #00979d;
+}
+
+.thirdBanner{
+    background-color: #bcac99;
+}
+
+.firstBanner:hover{
+    animation: firstBannerFigure .3s ease-out forwards;
+}
+
+.secondBanner:hover{
+    animation: secondBannerFigure .3s ease-out forwards;
+}
+
+.thirdBanner:hover{
+    animation: thirdBannerFigure .3s ease-out forwards;
+}
+
+main{
+    display: flex;
+    flex-flow: wrap;
+}
+
+main section, aside section{
+    background-color: #ecf1f1;
+    color: #00979d;
+    height: 90%;
+    letter-spacing: 3px;
+    margin: 5px 15px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 300px;
+}
+
+main section p{
+    font-size: 22px;
+    margin: 10% 0;
+    padding: 20px 0;
+}
+
+main section img{
+    height: 100%;
+    width: 100%;
+}
+
+main figure:before{
+    background-color: #00979d;
+    color: #ffffff;
+    content: 'BLOG';
+    display: inline;
+    padding: 10px;
+    position: absolute;
+}
+
+.hoverBlue:hover{
+    animation: hoverblue 0.3s linear forwards;
+}
+
+.hoverBlack:hover{
+    animation: hoverblack 0.3s linear forwards;
+}
+
+footer{
+    background-color: #00979d;
+    max-height: 10%;
+    width: 100%;
+}
+
+footer section{
+    margin: 20px 20px;
+}
+
+.firstFooter section a{
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+footer section p{
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.firstFooter a:hover{
+    color:#f1c40f;
+}
+
+footer section h3{
+    color: #ffffff;
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+.subscribe{
+    width: 80%;
+}
+
+footer section input[type="email"]{
+    height: 20%;
+    width: 60%;
+}
+
+footer section button{
+    background: #008184;
+    border: none;
+    box-shadow: 1px 2px 4px #000000;
+    color: #ffffff;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+}
+
+footer button:hover{
+    animation: buttonHover 0.5s ease-out forwards;
+}
+
+.buttonUp{
+    align-items: center;
+    display: flex;
+    margin: 0 3% 0 auto;
+}
+
+.firstFooter{
+   display: flex;
+   max-height: 30%;
+}
+
+.secondFooter{
+    align-items: center;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    max-height: 10%;
+}
+
+.socialFooter{
+    display: flex;
+    justify-content: space-around;
+    width: 250px;
+}
+
+.socialFooter img{
+    height: 25px;
+    width: 25px;
+}
+
+@media (max-width: 1145px) {
+    nav{
+        display: none;
+    }
+
+    .shopping, .search{
+        padding: 30px;
+    }
+
+    .smallMenu{
+        display: block;
+    }
+
+    aside{
+        margin: 100px auto 10px auto;
+        width: 100%;
+    }
+
+    aside section{
+        margin: 20px auto;
+        padding: 0;
+        width: 93%;
+    }
+
+    aside section + section{
+        display: flex;
+        flex-direction: row;
+        margin: 10px auto;
+        padding: 0;
+        width: 95%;
+    }
+
+    aside section + section a{
+        height: 100px;
+        margin: 0 10px;
+    }
+
+    .comments,.social, .sign{
+        display: none;
+    }
+
+    .mainContent{
+        flex-flow: column wrap;
+        margin-top: 0;
+    }
+
+    main{
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    main a{
+        flex-basis: 45%;
+        margin: 0 auto 10px auto;
+    }
+
+    main a section{
+        width: 95%;
+    }
+}
+
+@media (max-width: 600px) {
+    aside section + section{
+        flex-wrap: wrap;
+    }
+
+    aside section+ section a{
+        height: 50%;
+        margin: 5px auto;
+    }
+
+    main a{
+        flex-basis: 90%;
+    }
+
+    footer .firstFooter .subscribe input[type="email"]{
+        width: 100%;
+    }
+}
+
+@keyframes lianim {
+    from {background: #00979d;}
+    to {background: #7fcbcd;;
+    color: #00979d;}
+}
+
+@keyframes hoverblue {
+    to{
+        background-color: #80cbcd;
+        color:white;
+    }
+}
+
+@keyframes hoverblack {
+    to{
+        opacity: 0.5;
+    }
+}
+
+@keyframes firstBannerFigure {
+    to{
+        box-shadow: inset -70px 0 0 0 #f39c12;
+    }
+}
+
+@keyframes secondBannerFigure {
+    to{
+        box-shadow: inset -70px 0 0 0 #7fcbcd;
+    }
+}
+
+@keyframes thirdBannerFigure {
+    to{
+        box-shadow: inset -70px 0 0 0 #9e846d;
+    }
+}
+
+@keyframes socialhover {
+   to{
+       margin-left: 15px;
+   }
+}
+
+@keyframes buttonHover{
+    to{
+        box-shadow: 0 0 0;
+    }
+}
