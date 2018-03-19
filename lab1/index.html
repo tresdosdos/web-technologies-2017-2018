@@ -16,20 +16,20 @@
         <p>После загрузки файлов и отправки формы данные, связанные с Вашим аккаунтом Google (имя и фотография), будут записаны. Вы не vitaliystrelok8@gmail.com? <a href="#">Сменить аккаунт</a></p>
         <br/>
         <p class="asterisk">* Обязательно</p>
-        <form method="post">
+        <form method="post" action="#">
             <section>
                 <h2>Please fill your name<span class="asterisk">*</span></h2>
-                <input type="text" name="inputName"/>
+                <input type="text" name="inputName" class="textInput"/>
             </section>
             <section>
                 <h2>What color you like?<span class="asterisk">*</span></h2>
-                <p><input type="radio" name="inputRadioRed"/>   Red</p>
-                <p><input type="radio" name="inputRadioGreen"/>   Green</p>
-                <p><input type="radio" name="inputRadioBlue"/>   Blue</p>
-                <p><input type="radio" name="inputRadioBlack"/>   Black</p>
-                <p><input type="radio" name="inputRadioWhite"/>   White</p>
-                <p><input type="radio" name="inputRadioOther"/>
-                    Other:<input type="text" name="inputOther">
+                <p><input type="radio" name="inputRadioRed" class="radioInput"/>   Red</p>
+                <p><input type="radio" name="inputRadioGreen" class="radioInput"/>   Green</p>
+                <p><input type="radio" name="inputRadioBlue" class="radioInput"/>   Blue</p>
+                <p><input type="radio" name="inputRadioBlack" class="radioInput"/>   Black</p>
+                <p><input type="radio" name="inputRadioWhite" class="radioInput"/>   White</p>
+                <p><input type="radio" name="inputRadioOther" class="radioInput"/>
+                    Other:<input type="text" name="inputOther" class="textInput">
                 </p>
             </section>
             <section>
@@ -45,14 +45,14 @@
                 </section>
             <section>
                 <h2>Please describe (at least 50 symbols on symbols) your favorite programming language <span class="asterisk">*</span></h2>
-                <input type="text" name="inputProgramming">
+                <input type="text" name="inputProgramming" class="textInput">
             </section>
             <section>
                 <h2>What years of education did you really like? <span class="asterisk">*</span></h2>
-                <p><input type="checkbox" name="inputFirst">   First</p>
-                <p><input type="checkbox" name="inputSecond">   Second</p>
-                <p><input type="checkbox" name="inputThird">   Third</p>
-                <p><input type="checkbox" name="inputFourth">   Fourth</p>
+                <p><input type="checkbox" name="inputFirst" class="checkInput">   First</p>
+                <p><input type="checkbox" name="inputSecond" class="checkInput">   Second</p>
+                <p><input type="checkbox" name="inputThird" class="checkInput">   Third</p>
+                <p><input type="checkbox" name="inputFourth" class="checkInput">   Fourth</p>
             </section>
             <section>
                 <h2>Please send any image<span class="asterisk">*</span></h2>
@@ -66,7 +66,7 @@
         </form>
     </div>
 </main>
-<footer>
+<footer class="mainFooter">
     <img src="logo.svg" alt="googleLogo" />
 </footer>
 </body>

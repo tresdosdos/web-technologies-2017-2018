@@ -111,18 +111,18 @@ section{
     color:#ff0000;
 }
 
-input[type="text"]{
+.textInput{
     border: 0;
     border-bottom: 1px solid #ede7f6;
     width:350px;
 }
 
-input[type="radio"]{
+.radioInput{
     margin: 15px 0;
     padding: 5px;
 }
 
-input[type="checkbox"]{
+.checkInput{
     margin: 15px 0;
     padding: 5px;
 }
@@ -135,7 +135,7 @@ input[type="submit"]{
     padding: 5px 15px;
 }
 
-footer{
+.mainFooter{
     margin: -35px auto 0 auto;
     text-align: center;
     width:640px;
