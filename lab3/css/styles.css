@@ -1,0 +1,53 @@
+body{
+    background: url(./background.jpg) repeat;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
+    width: 50%;
+}
+
+.inputs h1{
+    color: #8a2be2;
+    text-shadow: #471d80 1px 1px;
+    margin: 0 auto;
+}
+
+.inputs .textInput{
+    border: 2px solid #a5cafb;
+    border-radius: 15px;
+    height: 50px;
+    outline: none;
+    margin: 10px auto;
+    text-align: center;
+    width: 50%;
+}
+
+.inputs .buttonSubmit{
+    background: #3e999f;
+    border-radius: 15px;
+    box-shadow: 2px 2px #4b4b46;
+    height: 30px;
+    outline: none;
+    margin: 5px auto;
+    width: 30%;
+}
+
+.bio{
+    border-bottom: 2px solid #8b807e;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 25%;
+}
+
+.h1{
+    height: 20px;
+}
