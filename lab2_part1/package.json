@@ -1,0 +1,20 @@
+{
+  "name": "lab2",
+  "version": "1.0.0",
+  "description": "lab2 bundle",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.5",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.14"
+  },
+  "devDependencies": {
+    "uglifyjs-webpack-plugin": "^1.2.4"
+  },
+  "scripts": {
+    "build": "webpack -p",
+    "watch": "webpack --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}
