@@ -59,23 +59,23 @@ body{
     margin-right: 10px;
 }
 
-.userAvatar{
+.user_avatar{
     border-radius: 5px;
 }
 
-.userName{
+.user_name{
     font-size: 36px;
     font-weight: 600;
     margin: 20px 15px 20px 0;
 }
 
-.userLogin{
+.user_login{
     font-family: Arial, sans-serif;
     font-size: 28px;
     margin: 20px 15px 20px 0;
 }
 
-.userBio{
+.user_bio{
     border-bottom: 2px solid #8b888a;
     font-size: 18px;
     margin: 0 15px 20px 0;
@@ -83,20 +83,20 @@ body{
     width: 460px;
 }
 
-.userLocation{
+.user_location{
     font-size: 18px;
     width: 460px;
     margin: 0 15px 20px 0;
 }
 
-.userCompany{
+.user_company{
     font-size: 18px;
     font-weight: bold;
     margin: 0 15px 20px 0;
     width: 460px;
 }
 
-.userLink{
+.user_link{
     text-decoration: none;
 }
 
