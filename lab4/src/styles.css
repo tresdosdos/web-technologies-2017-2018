@@ -145,3 +145,26 @@ body{
     margin: 15px 0 15px auto;
     width: 30%;
 }
+
+.main_info{
+    display: flex;
+    flex-direction: column;
+}
+
+.route_link{
+    color: #8b888a;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.route_link:focus-within{
+    color: #f00;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 10px;
+    text-decoration: none;
+    text-transform: uppercase
+}

@@ -3,19 +3,22 @@ import GitHubAPI from '../GitHubAPI';
 export const fetchSuccess = () => (dispatch) => {
     const text = document.getElementById('textInput');
     GitHubAPI.getUser(text.value).then( (result) =>{
-    dispatch({
-        type: 'FETCH_SUCCESS',
-        data: {
-            userImg: result.avatar_url,
-            userName: result.name,
-            userLogin: result.login,
-            userBio: result.bio,
-            userCompany: result.company,
-            userLocation: result.location,
-            userEmail: result.email,
-            userSocial: result.blog,
-            isError: false
-        }
+        dispatch({
+            type: 'FETCH_SUCCESS',
+            data: {
+                userImg: result.avatar_url,
+                userName: result.name,
+                userLogin: result.login,
+                userBio: result.bio,
+                userCompany: result.company,
+                userLocation: result.location,
+                userEmail: result.email,
+                userSocial: result.blog,
+                isError: false,
+                followersUrl: result.followers_url,
+                reposUrl: result.repos_url,
+                organizationsUrl: result.organizations_url
+            }
     })})
         .catch((err) => {
             if (err.message === 'FETCH_ERROR'){

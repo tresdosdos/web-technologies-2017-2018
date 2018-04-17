@@ -18,8 +18,15 @@ function getUser (login) {
     })
 }
 
+function getOtherInfo(url) {
+    return apiCall(url).then((res) => {
+        return res;
+    })
+}
+
 const GitHubAPI = {
-    getUser
+    getUser,
+    getOtherInfo
 };
 
 export default GitHubAPI;
