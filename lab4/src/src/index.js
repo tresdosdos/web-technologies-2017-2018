@@ -18,17 +18,15 @@ export default store;
 
 ReactDOM.render(
     <Provider store={store}>
-        <Fragment>
-            <Inputs/>
-            <main className='mainContent'>
-                <MainInfo/>
-                <HashRouter>
-                    <Fragment>
+            <Fragment>
+                <Inputs/>
+                <main className='mainContent'>
+                    <MainInfo/>
+                    <HashRouter>
                         <UserTabs/>
-                    </Fragment>
-                </HashRouter>
-            </main>
-        </Fragment>
+                    </HashRouter>
+                </main>
+            </Fragment>
     </Provider>,
     document.getElementById('root')
 );

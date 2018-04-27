@@ -6,7 +6,9 @@ class Organizations extends React.Component{
         if (this.props.store.otherInfo.organizations.length !== 0){
             return (
                 <Fragment>
-                    {this.props.store.otherInfo.organizations}.
+                    {this.props.store.otherInfo.organizations.map((element, step) => {
+                        return <li key={step}>{element}</li>
+                    })}
                 </Fragment>
             );
         }

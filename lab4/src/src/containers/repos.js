@@ -6,7 +6,9 @@ class Followers extends React.Component{
         if (this.props.store.otherInfo.repos.length !== 0){
             return (
                 <Fragment>
-                    {this.props.store.otherInfo.repos}.
+                    {this.props.store.otherInfo.repos.map((element, step) => {
+                            return <li key={step}>{element}</li>
+                    })}
                 </Fragment>
             );
         }

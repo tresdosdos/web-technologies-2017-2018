@@ -1,21 +1,16 @@
 import GitHubAPI from '../services/githubAPI';
 import store from '../index';
-import React from 'react';
 
 export const getRepos = () => (dispatch) => {
     if (store.getState().userInfo.reposUrl){
         GitHubAPI.getOtherInfo(store.getState().userInfo.reposUrl).then(
             (res) => {
-                const result = [];
-                res.forEach((element) => {
-                    result.push(element.name)
-                });
-                const repos = result.map((element, step) =>{
-                    return <li key={step}>{element}</li>
+                const result = res.map((element) => {
+                    return element.name;
                 });
                 dispatch({
                     type: 'FETCH_REPOS_SUCCESS',
-                    repos: repos
+                    repos: result
                 })
             }
         )
@@ -27,16 +22,12 @@ export const getFollowers = () => (dispatch) => {
     if (store.getState().userInfo.followersUrl){
         GitHubAPI.getOtherInfo(store.getState().userInfo.followersUrl).then(
             (res) => {
-                const result = [];
-                res.forEach((element) => {
-                    result.push(element.login)
-                });
-                const followers = result.map((element, step) =>{
-                    return <li key={step}>{element}</li>
+                const result = res.map((element) => {
+                    return element.login;
                 });
                 dispatch({
                     type: 'FETCH_FOLLOWERS_SUCCESS',
-                    followers: followers
+                    followers: result
                 })
             }
         )
@@ -48,16 +39,12 @@ export const getOrganizations = () => (dispatch) => {
     if (store.getState().userInfo.organizationsUrl){
         GitHubAPI.getOtherInfo(store.getState().userInfo.organizationsUrl).then(
             (res) => {
-                const result = [];
-                res.forEach((element) => {
-                    result.push(element.login)
-                });
-                const organizations = result.map((element, step) =>{
-                    return <li key={step}>{element}</li>
+                const result = res.map((element) => {
+                    return element.login;
                 });
                 dispatch({
                     type: 'FETCH_ORGANIZATIONS_SUCCESS',
-                    organizations: organizations
+                    organizations: result
                 })
             }
         )

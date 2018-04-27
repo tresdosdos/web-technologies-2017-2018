@@ -21,68 +21,25 @@ function Icon(props) {
     );
 }
 
-function TextNode(props) {
-    if (props.value !== null && props.value !== ''){
-        if (props.type === 'h1'){
-            return (
-                <h1 className={props.class}>{props.value}</h1>
-            );
-        }
-        else if (props.type === 'h2'){
-            return (
-                <h2 className={props.class}>{props.value}</h2>
-            );
-        }
-        else if (props.type === 'h3'){
-            return (
-                <h3 className={props.class}>{props.value}</h3>
-            );
-        }
-        else if (props.type === 'h4'){
-            return (
-                <Fragment>
-                    <Icon icon={props.icon}/>
-                    <h4 className={props.class}>{props.value}</h4>
-                </Fragment>
-            );
-        }
-        else if (props.type === 'p'){
-            return (
-                <Fragment>
-                    <Icon icon={props.icon}/>
-                    <p className={props.class}>{props.value}</p>
-                </Fragment>
-            );
-        }
-        else if (props.type === 'a'){
-            return (
-                <Fragment>
-                    <Icon icon={props.icon}/>
-                    <Link href={props.href} value={props.value} class='user_link'/>
-                </Fragment>
-            );
-        }
-        else if (props.type === 'img'){
-            return (
-                <Pic src={props.src} alt={props.alt} class='user_avatar'/>
-            );
-        }
-    }
-        return null;
-}
-
-
-
 export function UserNode(props) {
     return (
         <div>
-            <TextNode type='img' src={props.defaultValue.userImg} alt='avatar'/>
-            <TextNode type='h1'  value={props.defaultValue.userName} class='user_name'/>
-            <TextNode type='h2' value={props.defaultValue.userLogin} class='user_login'/>
-            <TextNode type='h3' value={props.defaultValue.userBio} class='user_bio'/>
-            <TextNode type='p' icon={faUsers} value={props.defaultValue.userCompany} class='user_company'/>
-            <TextNode type='h4' icon={faLocationArrow} value={props.defaultValue.userLocation} class='user_location'/>
-            <TextNode type='a' icon={faLink} href={props.defaultValue.userSocial} value={props.defaultValue.userSocial}/>
+            <Pic src={props.defaultValue.userImg} alt='avatar' class='user_avatar'/>
+            <h1 className='user_name'>{props.defaultValue.userName}</h1>
+            <h2 className='user_login'>{props.defaultValue.userLogin}</h2>
+            <h3 className='user_bio'>{props.defaultValue.userBio}</h3>
+            <Fragment>
+                <Icon icon={faUsers}/>
+                <p className='user_company'>{props.defaultValue.userCompany}</p>
+            </Fragment>
+            <Fragment>
+                <Icon icon={faLocationArrow}/>
+                <h4 className='user_location'>{props.defaultValue.userLocation}</h4>
+            </Fragment>
+            <Fragment>
+                <Icon icon={faLink}/>
+                <Link href={props.defaultValue.userSocial} value={props.defaultValue.userSocial} class='user_link'/>
+            </Fragment>
         </div>
     );
 }

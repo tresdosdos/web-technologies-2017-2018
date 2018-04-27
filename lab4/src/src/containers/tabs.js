@@ -12,13 +12,13 @@ function RouteLinks(props) {
     return (
         <ul className='ulTabButtons'>
             <li className='tabButton'>
-                <Link id='radioTab1' onClick={props.changeTab} className='radioTabButton' to='/'>Main</Link>
+                <Link name='1' onClick={props.changeTab} className='radioTabButton' to='/'>Main</Link>
             </li>
             <li className='tabButton'>
-                <Link id='radioTab2' onClick={props.changeTab} className='radioTabButton' to='/'>Education</Link>
+                <Link name='2' onClick={props.changeTab} className='radioTabButton' to='/'>Education</Link>
             </li>
             <li className='tabButton'>
-                <Link id='radioTab3' onClick={props.changeTab} className='radioTabButton' to='/'>Contacts</Link>
+                <Link name='3' onClick={props.changeTab} className='radioTabButton' to='/'>Contacts</Link>
             </li>
             <li className='tabButton'>
                 <Link className='radioTabButton' to='/followers' onClick={props.getFollowers}>Followers</Link>
@@ -37,7 +37,9 @@ class UserTabs extends React.Component{
     render(){
         return (
             <div>
-                <RouteLinks changeTab={this.props.changeTab} getFollowers={this.props.getFollowers} getRepos={this.props.getRepos} getOrganizations={this.props.getOrganizations}/>
+                <nav>
+                    <RouteLinks changeTab={this.props.changeTab} getFollowers={this.props.getFollowers} getRepos={this.props.getRepos} getOrganizations={this.props.getOrganizations}/>
+                </nav>
                 <Switch>
                     <Route exact path='/' render={() => <EditableTab readOnly={this.props.store.tabs.notEditable} onClick={this.props.editTab}
                                  text={this.props.store.tabs} currentTab={this.props.store.tabs.currentTab} onChange={this.props.setContent}/>}/>
