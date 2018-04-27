@@ -1,5 +1,7 @@
 import requestAPI from './requestAPI';
 
+const gitUrlApi = 'https://api.github.com/users/';
+
 function apiCall (url) {
     return requestAPI.get(url)
         .then((response) => {
@@ -14,7 +16,7 @@ function apiCall (url) {
 }
 
 function getUser (login) {
-    let url = `https://api.github.com/users/${login}`;
+    const url = gitUrlApi+login;
     return apiCall(url).then((res) => {
         return res;
     })
