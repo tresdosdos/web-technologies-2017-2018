@@ -1,4 +1,4 @@
-import GitHubAPI from '../GitHubAPI';
+import GitHubAPI from '../services/githubAPI';
 import store from '../index';
 import React from 'react';
 

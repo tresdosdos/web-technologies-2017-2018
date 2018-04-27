@@ -1,8 +1,6 @@
 import React, {Fragment} from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import {faUsers, faLocationArrow, faLink} from '@fortawesome/fontawesome-free-solid';
-import {connect} from 'react-redux';
-import {fetchSuccess} from "../actions/user";
 
 function Link(props) {
     return (
@@ -72,7 +70,7 @@ function TextNode(props) {
         return null;
 }
 
-function Inputs(props) {
+export function Inputs(props) {
     return (
         <Fragment>
             <input type='text' id='textInput' onKeyUp={props.onKeyUp}/>
@@ -81,7 +79,7 @@ function Inputs(props) {
     );
 }
 
-function UserNode(props) {
+export function UserNode(props) {
     return (
         <div>
             <TextNode type='img' src={props.defaultValue.userImg} alt='avatar'/>
@@ -95,34 +93,3 @@ function UserNode(props) {
     );
 }
 
-class UserInfo extends React.Component{
-    keyEnter = (e) =>{
-        if (e.keyCode === 13)
-            this.props.fetchSuccess();
-    };
-    render(){
-        if (this.props.store.userInfo.isError){
-            return (<div className='userInfo'>
-                <Inputs search={this.props.fetchSuccess} onKeyUp={this.keyEnter}/>
-                {this.props.store.userInfo.errName ? (
-                    <h1>{this.props.store.userInfo.errName}</h1>) : (
-                    null
-                )}
-            </div>);
-        }
-        else {
-            return (
-                <div className='userInfo'>
-                    <Inputs search={this.props.fetchSuccess} onKeyUp={this.keyEnter}/>
-                    {this.props.store.userInfo.userLogin ? (<UserNode defaultValue={this.props.store.userInfo}/>): null}
-                </div>);
-        }
-    }
-}
-
-export default connect(
-    state => ({store: state}),
-    dispatch => ({
-        fetchSuccess: () => {dispatch(fetchSuccess())}
-    })
-)(UserInfo);

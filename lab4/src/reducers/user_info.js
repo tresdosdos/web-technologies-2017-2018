@@ -8,15 +8,16 @@ const initialState = {
     userEmail: '',
     userSocial: '',
     isError: false,
-    errName: ''
+    errName: '',
+    isLoaded: false
 };
 
 export default function getInfo(state = initialState, action) {
     switch (action.type){
-        case 'FETCH_SUCCESS':{
+        case 'GET_SUCCESS':{
             return Object.assign({}, state, action.data);
         }
-        case 'FETCH_ERROR':{
+        case 'GET_ERROR':{
             return Object.assign({}, state, {isError: action.isError, errName: action.errName})
         }
         case 'SERVER_ERROR':{
