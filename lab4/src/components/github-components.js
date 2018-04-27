@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import {faUsers, faLocationArrow, faLink} from '@fortawesome/fontawesome-free-solid';
 
+
 function Link(props) {
     return (
         <a href={props.href} className={props.class}>{props.value}</a>
@@ -70,14 +71,7 @@ function TextNode(props) {
         return null;
 }
 
-export function Inputs(props) {
-    return (
-        <Fragment>
-            <input type='text' id='textInput' onKeyUp={props.onKeyUp}/>
-            <button onClick={props.search}>Find!</button>
-        </Fragment>
-    );
-}
+
 
 export function UserNode(props) {
     return (
@@ -92,4 +86,3 @@ export function UserNode(props) {
         </div>
     );
 }
-

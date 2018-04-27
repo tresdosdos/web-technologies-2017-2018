@@ -50,8 +50,41 @@ body{
     font-family: Arial, sans-serif;
 }
 
+.inputs_header{
+    align-items: center;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.inputs_header input{
+    background-color: rgba(255,255,255,0.225);
+    border: none;
+    color: #fff;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.inputs_header button{
+    background-color: rgba(255,255,255,0.350);
+    border: none;
+    color: #fff;
+    padding: 5px;
+}
+
+.inputs_header img{
+    width: 50px;
+}
+
 .mainContent{
     display: flex;
+}
+
+.main_info{
+    align-items: center;
+    display: flex;
+    width: 40%;
 }
 
 .userIcons{
@@ -125,15 +158,17 @@ body{
 }
 
 .radioLabel{
-    cursor: pointer;
-    padding: 20px 30px;
+
 }
 
 .radioTabButton{
-    visibility: hidden;
+    color: #000;
+    cursor: pointer;
+    padding: 20px 30px;
+    text-decoration: none;
 }
 
-.radioTabButton:checked + .radioLabel{
+.radioTabButton:focus-within{
     border-bottom: 2px solid #f00;
 }
 
@@ -149,22 +184,4 @@ body{
 .main_info{
     display: flex;
     flex-direction: column;
-}
-
-.route_link{
-    color: #8b888a;
-    font-size: 28px;
-    font-weight: bold;
-    margin-right: 10px;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-.route_link:focus-within{
-    color: #f00;
-    font-size: 28px;
-    font-weight: bold;
-    margin-right: 10px;
-    text-decoration: none;
-    text-transform: uppercase
 }

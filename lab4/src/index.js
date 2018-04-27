@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 import UserTabs from './containers/tabs';
@@ -7,16 +7,10 @@ import reducers from './reducers';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {HashRouter} from 'react-router-dom';
-import MainInfo from './containers';
-
+import MainInfo from './components/index';
+import Inputs from './containers/inputs';
 
 const store = createStore(reducers, applyMiddleware(thunk));
-
-console.log(store.getState());
-
-store.subscribe(() => {
-    console.log(store.getState())
-});
 
 
 export default store;
@@ -24,12 +18,17 @@ export default store;
 
 ReactDOM.render(
     <Provider store={store}>
-        <main className='mainContent'>
-            <HashRouter>
+        <Fragment>
+            <Inputs/>
+            <main className='mainContent'>
                 <MainInfo/>
-            </HashRouter>
-            <UserTabs/>
-        </main>
+                <HashRouter>
+                    <Fragment>
+                        <UserTabs/>
+                    </Fragment>
+                </HashRouter>
+            </main>
+        </Fragment>
     </Provider>,
     document.getElementById('root')
 );
