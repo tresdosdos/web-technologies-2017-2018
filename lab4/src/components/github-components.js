@@ -28,18 +28,12 @@ export function UserNode(props) {
             <h1 className='user_name'>{props.defaultValue.userName}</h1>
             <h2 className='user_login'>{props.defaultValue.userLogin}</h2>
             <h3 className='user_bio'>{props.defaultValue.userBio}</h3>
-            <Fragment>
-                <Icon icon={faUsers}/>
-                <p className='user_company'>{props.defaultValue.userCompany}</p>
-            </Fragment>
-            <Fragment>
-                <Icon icon={faLocationArrow}/>
-                <h4 className='user_location'>{props.defaultValue.userLocation}</h4>
-            </Fragment>
-            <Fragment>
-                <Icon icon={faLink}/>
-                <Link href={props.defaultValue.userSocial} value={props.defaultValue.userSocial} class='user_link'/>
-            </Fragment>
+            <Icon icon={faUsers}/>
+            <p className='user_company'>{props.defaultValue.userCompany}</p>
+            <Icon icon={faLocationArrow}/>
+            <h4 className='user_location'>{props.defaultValue.userLocation}</h4>
+            <Icon icon={faLink}/>
+            <Link href={props.defaultValue.userSocial} value={props.defaultValue.userSocial} class='user_link'/>
         </div>
     );
 }
