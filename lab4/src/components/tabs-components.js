@@ -1,10 +1,5 @@
 import React from 'react';
-
-function InfoTab(props){
-    return (
-        <textarea readOnly={props.readOnly} value={props.text} onChange={props.onChange}></textarea>
-    );
-}
+import {InfoTab} from './infotab'
 
 export function EditableTab(props) {
     return (

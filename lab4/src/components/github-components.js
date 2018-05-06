@@ -1,25 +1,8 @@
-import React, {Fragment} from 'react';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import React from 'react';
 import {faUsers, faLocationArrow, faLink} from '@fortawesome/fontawesome-free-solid';
-
-
-function Link(props) {
-    return (
-        <a href={props.href} className={props.class}>{props.value}</a>
-    );
-}
-
-function Pic(props) {
-    return (
-        <img src={props.src} alt={props.value} className={props.class}/>
-    );
-}
-
-function Icon(props) {
-    return (
-        <FontAwesomeIcon icon={props.icon} className='userIcons'/>
-    );
-}
+import Link from './link';
+import Pic from './pic';
+import Icon from './icon';
 
 export function UserNode(props) {
     return (
