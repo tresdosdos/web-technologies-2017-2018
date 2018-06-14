@@ -139,6 +139,7 @@ body{
 
 .tab_container{
     margin-right: 25px;
+    width: 80%;
 }
 
 .editableTab{
@@ -159,10 +160,6 @@ body{
 
 .tabButton:focus{
     outline: none;
-}
-
-.radioLabel{
-
 }
 
 .radioTabButton{

@@ -2,6 +2,8 @@ import requestAPI from './requestAPI';
 
 const gitUrlApi = 'https://api.github.com/users/';
 const gitRepoApi = 'https://api.github.com/search/repositories?q=';
+const gitTopRepos = 'https://api.github.com/legacy/repos/search/:keyword?sort=stars';
+
 
 function apiCall (url) {
     return requestAPI.get(url)
@@ -36,10 +38,18 @@ function getRepo(name) {
     });
 }
 
+function topRepos() {
+    const url = gitTopRepos;
+    return apiCall(url).then((res) => {
+        return res;
+    });
+}
+
 const GitHubAPI = {
     getUser,
     getOtherInfo,
-    getRepo
+    getRepo,
+    topRepos
 };
 
 export default GitHubAPI;

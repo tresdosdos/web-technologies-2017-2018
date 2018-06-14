@@ -2,7 +2,8 @@ const initialState = {
     followers: [],
     repos: [],
     organizations: [],
-    repoSearch: []
+    repoSearch: [],
+    topRepos: []
 };
 
 export default function getOtherInfo(state = initialState, action) {
@@ -25,6 +26,11 @@ export default function getOtherInfo(state = initialState, action) {
         case 'SEARCH_REPO_SUCCESS':{
             return Object.assign({}, state, {
                 repoSearch: action.repoSearch
+            })
+        }
+        case 'TOP_REPOS_SUCCESS':{
+            return Object.assign({}, state, {
+                topRepos: action.topRepos
             })
         }
         default:{

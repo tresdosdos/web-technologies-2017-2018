@@ -7,7 +7,8 @@ import Followers from './followers';
 import Repos from './repos';
 import Organizations from './organizations';
 import RepoSearch from './repoSearch';
-import {getRepos, getOrganizations, getFollowers} from "../actions/sagasActions";
+import TopRepos from './topRepos';
+import {getRepos, getOrganizations, getTopRepos, getFollowers} from "../actions/sagasActions";
 
 function RouteLinks(props) {
     return (
@@ -30,6 +31,9 @@ function RouteLinks(props) {
             <li className='tabButton'>
                 <Link className='radioTabButton' to='/reposearch' onClick={props.getOrganizations}>Search</Link>
             </li>
+            <li className='tabButton'>
+                <Link className='radioTabButton' to='/toprepos' onClick={props.getTopRepos}>Top</Link>
+            </li>
         </ul>
     );
 }
@@ -39,7 +43,7 @@ class UserTabs extends React.Component{
         return (
             <div className='tab_container'>
                 <nav>
-                    <RouteLinks changeTab={this.props.changeTab} getFollowers={this.props.getFollowers} getRepos={this.props.getRepos} getOrganizations={this.props.getOrganizations}/>
+                    <RouteLinks changeTab={this.props.changeTab} getFollowers={this.props.getFollowers} getRepos={this.props.getRepos} getOrganizations={this.props.getOrganizations} getTopRepos={this.props.getTopRepos}/>
                 </nav>
                 <Switch>
                     <Route exact path='/' render={() => <EditableTab readOnly={this.props.store.tabs.notEditable} onClick={this.props.editTab}
@@ -48,6 +52,7 @@ class UserTabs extends React.Component{
                     <Route path='/repos' component={Repos}/>
                     <Route path='/organizations' component={Organizations}/>
                     <Route path='/reposearch' component={RepoSearch}/>
+                    <Route path='/toprepos' component={TopRepos}/>
                 </Switch>
             </div>
         );
@@ -59,6 +64,7 @@ export default withRouter(connect(
     dispatch => ({
         changeTab: (e) => dispatch(changeTab(e)),
         editTab: (e) => dispatch(editTab(e)),
+        getTopRepos: () => {dispatch(getTopRepos())},
         setContent: (e) =>dispatch(setContent(e)),
         getRepos: () => {dispatch(getRepos())},
         getFollowers: () => {dispatch(getFollowers())},

@@ -26,3 +26,10 @@ export const searchRepoSuccess = (data) => {
         repoSearch: data
     }
 };
+
+export const topReposSuccess = (data) => {
+    return {
+        type: "TOP_REPOS_SUCCESS",
+        topRepos: data
+    }
+};

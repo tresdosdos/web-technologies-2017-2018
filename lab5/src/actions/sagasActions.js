@@ -27,3 +27,10 @@ export const getSearchRepo = () => {
         type: "SEARCH_REPO"
     }
 };
+
+export const getTopRepos = () => {
+    console.log('zashel');
+    return {
+        type: "REPOS"
+    }
+};

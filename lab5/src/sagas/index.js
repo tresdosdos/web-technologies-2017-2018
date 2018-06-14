@@ -1,7 +1,13 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import githubAPI from '../services/githubAPI';
 import { fetchSuccess } from "../actions/user";
-import { fetchReposSuccess, fetchOrganizationsSuccess, fetchFollowersSuccess, searchRepoSuccess } from "../actions/otherInfo";
+import {
+    fetchReposSuccess,
+    fetchOrganizationsSuccess,
+    fetchFollowersSuccess,
+    searchRepoSuccess,
+    topReposSuccess
+} from "../actions/otherInfo";
 import store from '../index';
 
 function getUserData(login) {
@@ -78,6 +84,19 @@ function *searchRepo() {
     }
 }
 
+function *topRepos() {
+    console.log('zashli');
+    try {
+        const data = yield call(() => githubAPI.topRepos());
+        console.log(data);
+        const repos = data.repositories.slice(0,5).map((repo) => repo.name);
+        console.log(repos);
+        yield put(topReposSuccess(repos));
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 
 export default function* sagasWatcher() {
     yield takeEvery("GET_USER", fetchUser);
@@ -85,4 +104,5 @@ export default function* sagasWatcher() {
     yield takeEvery("GET_ORGANIZATIONS", fetchOrgs);
     yield takeEvery("GET_FOLLOWERS", fetchFollowers);
     yield takeEvery("SEARCH_REPO", searchRepo);
+    yield takeEvery("REPOS", topRepos);
 }
