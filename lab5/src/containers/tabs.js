@@ -6,7 +6,8 @@ import {Link, Switch, Route, withRouter} from 'react-router-dom';
 import Followers from './followers';
 import Repos from './repos';
 import Organizations from './organizations';
-import {getFollowers, getOrganizations, getRepos} from "../actions/otherInfo";
+import RepoSearch from './repoSearch';
+import {getRepos, getOrganizations, getFollowers} from "../actions/sagasActions";
 
 function RouteLinks(props) {
     return (
@@ -18,9 +19,6 @@ function RouteLinks(props) {
                 <Link name='2' onClick={props.changeTab} className='radioTabButton' to='/'>Education</Link>
             </li>
             <li className='tabButton'>
-                <Link name='3' onClick={props.changeTab} className='radioTabButton' to='/'>Contacts</Link>
-            </li>
-            <li className='tabButton'>
                 <Link className='radioTabButton' to='/followers' onClick={props.getFollowers}>Followers</Link>
             </li>
             <li className='tabButton'>
@@ -28,6 +26,9 @@ function RouteLinks(props) {
             </li>
             <li className='tabButton'>
                 <Link className='radioTabButton' to='/organizations' onClick={props.getOrganizations}>Organizations</Link>
+            </li>
+            <li className='tabButton'>
+                <Link className='radioTabButton' to='/reposearch' onClick={props.getOrganizations}>Search</Link>
             </li>
         </ul>
     );
@@ -46,6 +47,7 @@ class UserTabs extends React.Component{
                     <Route path='/followers' component={Followers}/>
                     <Route path='/repos' component={Repos}/>
                     <Route path='/organizations' component={Organizations}/>
+                    <Route path='/reposearch' component={RepoSearch}/>
                 </Switch>
             </div>
         );
