@@ -8,7 +8,7 @@ class Organizations extends React.Component{
                 <Fragment>
                     <h2>{this.props.store.userInfo.userName} organizations:</h2>
                     {this.props.store.otherInfo.organizations.map((element, step) => {
-                        return <li key={step}>{element}</li>
+                        return <li key={step} className='user__items'>{element}</li>
                     })}
                 </Fragment>
             );

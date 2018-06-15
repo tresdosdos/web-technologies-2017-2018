@@ -3,7 +3,6 @@ export const fetchReposSuccess = (data) => {
             type: "FETCH_REPOS_SUCCESS",
             repos: data
         }
-
 };
 
 export const fetchOrganizationsSuccess = (data) => {

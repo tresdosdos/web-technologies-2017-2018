@@ -8,7 +8,7 @@ class Followers extends React.Component{
                 <Fragment>
                     <h2>{this.props.store.userInfo.userName} followers:</h2>
                     {this.props.store.otherInfo.followers.map((element, step) => {
-                        return <li key={step}>{element}</li>
+                        return <li key={step} className='user__items'>{element}</li>
                     })}
                 </Fragment>
             );

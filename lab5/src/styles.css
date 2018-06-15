@@ -186,3 +186,11 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+.user__items{
+    border-bottom: 1px solid #818f97;
+    color: #0366d6;
+    padding: 10px 15px;
+    text-decoration: none;
+    list-style: none;
+}

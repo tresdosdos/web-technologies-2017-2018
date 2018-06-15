@@ -8,7 +8,7 @@ class TopRepos extends React.Component{
                 <Fragment>
                     <h2>Top starred repos on github:</h2>
                     {this.props.store.otherInfo.topRepos.map((element, step) => {
-                        return <li key={step}>{element}</li>
+                        return <li key={step} className='user__items'>{element}</li>
                     })}
                 </Fragment>
             );
