@@ -6,6 +6,7 @@ import { MovieModel } from './movie.model';
 @Injectable()
 export class MovieService {
   private data = this.config.getData();
+
   constructor(private config: ConfigService) {}
 
   public getByName(name: string): MovieModel {
@@ -24,7 +25,6 @@ export class MovieService {
     direction: number,
   ): MovieModel[] {
     if (direction !== 1 && direction !== -1) {
-      console.log(direction);
       throw new BadRequestException();
     }
 
