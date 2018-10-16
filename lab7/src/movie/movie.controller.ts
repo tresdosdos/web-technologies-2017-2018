@@ -8,11 +8,9 @@ import {
   Req,
   Res,
 } from '@nestjs/common';
-import { keys } from 'ts-transformer-keys';
 
 import { ConfigService } from '../config';
 import { MovieService } from './movie.service';
-import { MovieModel } from './movie.model';
 import { MOVIE_EXAMPLE } from '../constants';
 
 @Controller('movie')

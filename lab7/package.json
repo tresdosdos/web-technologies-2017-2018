@@ -17,7 +17,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "webpack": "webpack --config webpack.config.js"
+    "webpack": "webpack --config webpack.config.js",
+    "postinstall": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "@nestjs/common": "^5.1.0",
@@ -62,5 +63,9 @@
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "engines": {
+    "npm": "6.4.1",
+    "node": "8.9.1"
   }
 }
