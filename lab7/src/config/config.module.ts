@@ -1,3 +1,4 @@
+import * as path from 'path';
 import { Module } from '@nestjs/common';
 
 import { ConfigService } from './config.service';
@@ -6,7 +7,7 @@ import { ConfigService } from './config.service';
   providers: [
     {
       provide: ConfigService,
-      useValue: new ConfigService('./.env'),
+      useValue: new ConfigService(path.join(__dirname + '/.env')),
     },
   ],
   exports: [ConfigService],

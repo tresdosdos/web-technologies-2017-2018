@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import {
   BadRequestException,
   Controller,
@@ -7,9 +8,12 @@ import {
   Req,
   Res,
 } from '@nestjs/common';
+import { keys } from 'ts-transformer-keys';
 
-import { ConfigService } from '../../src/config';
+import { ConfigService } from '../config';
 import { MovieService } from './movie.service';
+import { MovieModel } from './movie.model';
+import { MOVIE_EXAMPLE } from '../constants';
 
 @Controller('movie')
 export class MovieController {
@@ -41,7 +45,13 @@ export class MovieController {
 
   @Get('sort')
   getSortedData(@Query() query, @Res() res) {
-    if (!query.field || !query.direction) {
+    const propsKeys = Object.keys(MOVIE_EXAMPLE);
+
+    if (
+      !query.field ||
+      !query.direction ||
+      !_.includes(propsKeys, query.field)
+    ) {
       throw new BadRequestException();
     }
 
@@ -57,7 +67,7 @@ export class MovieController {
 
   @Get('id/:id')
   getById(@Param() param, @Res() res) {
-    if (isNaN(+param.id)) {
+    if (isNaN(+param.id) || +param.id < 0) {
       throw new BadRequestException();
     }
 

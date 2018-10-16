@@ -1,7 +1,7 @@
 export interface MovieModel {
   vote_count: number;
   id: number;
-  vote_average: 6.8;
+  vote_average: number;
   title: string;
   popularity: number;
   poster_path: string;

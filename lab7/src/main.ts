@@ -3,7 +3,8 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(2000);
+  const port = process.env.PORT || 2000;
+  await app.listen(port);
 
   process.on('SIGINT', () => {
     app.close().then(() => console.log('Gracefull shutdown'));
