@@ -1,26 +1,38 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 
-import { ConfigService } from '../config';
 import { MovieModel } from './movie.model';
+import { Symbols } from '../symbols';
+import Movie from '../db/models/movie.model';
+import GenreId from '../db/models/genre-id.model';
+import { Sequelize } from 'sequelize-typescript';
 
 @Injectable()
 export class MovieService {
-  private data = this.config.getData();
-
-  constructor(private config: ConfigService) {}
-
-  public getByName(name: string): MovieModel {
-    return this.data.find(movie =>
-      movie.original_title.toLowerCase().includes(name.toLowerCase()),
-    );
+  constructor(@Inject(Symbols.Movie) private movie: typeof Movie,
+              @Inject(Symbols.GenreId) private genreId: typeof GenreId) {
   }
 
-  public getPage(offset: number, limit: number): MovieModel[] {
-    return this.data.slice(offset, offset + limit);
+  public async getByName(name: string) {
+    const foundMovies = await this.movie.findOne({where: {
+      original_title: {
+        [Sequelize.Op.iLike]: '%' + name + '%',
+      },
+      }, include: [this.genreId]},
+    );
+
+    return foundMovies.toJSON();
+  }
+
+  public async getPage(offset: number, limit: number) {
+    return await this.movie.findAll({
+      offset,
+      limit,
+      include: [this.genreId],
+    });
   }
 
   public sort(
-    movies: MovieModel[],
+    movies,
     field: string,
     direction: number,
   ): MovieModel[] {
@@ -41,7 +53,12 @@ export class MovieService {
     });
   }
 
-  public getById(id: number): MovieModel {
-    return this.data.find(movie => movie.id === id);
+  public async getById(id: number) {
+    return await this.movie.findOne({
+      where: {
+        id,
+      },
+      include: [this.genreId],
+    });
   }
 }

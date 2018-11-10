@@ -15,14 +15,11 @@ import { MOVIE_EXAMPLE } from '../constants';
 
 @Controller('movie')
 export class MovieController {
-  constructor(
-    private config: ConfigService,
-    private movieService: MovieService,
-  ) {}
+  constructor(private movieService: MovieService) {}
 
   @Get('name/:name')
-  getByName(@Req() req, @Res() res) {
-    const foundMovie = this.movieService.getByName(req.params.name);
+  async getByName(@Req() req, @Res() res) {
+    const foundMovie = await this.movieService.getByName(req.params.name);
 
     if (!foundMovie) {
       throw new BadRequestException();
@@ -32,14 +29,14 @@ export class MovieController {
   }
 
   @Get()
-  getPage(@Query() query, @Res() res) {
-    const currentPage = this.movieService.getPage(query.offset, query.limit);
+  async getPage(@Query() query, @Res() res) {
+    const currentPage = await this.movieService.getPage(query.offset, query.limit);
 
     res.send(currentPage);
   }
 
   @Get('sort')
-  getSortedData(@Query() query, @Res() res) {
+  async getSortedData(@Query() query, @Res() res) {
     const propsKeys = Object.keys(MOVIE_EXAMPLE);
 
     if (
@@ -50,7 +47,7 @@ export class MovieController {
       throw new BadRequestException();
     }
 
-    const firstPage = this.movieService.getPage(0, 20);
+    const firstPage = await this.movieService.getPage(0, 20);
     const sortedMovies = this.movieService.sort(
       firstPage,
       query.field,
@@ -61,12 +58,12 @@ export class MovieController {
   }
 
   @Get('id/:id')
-  getById(@Param() param, @Res() res) {
+  async getById(@Param() param, @Res() res) {
     if (isNaN(+param.id) || +param.id < 0) {
       throw new BadRequestException();
     }
 
-    const foundMovie = this.movieService.getById(+param.id);
+    const foundMovie = await this.movieService.getById(+param.id);
 
     res.send(foundMovie);
   }
