@@ -33,10 +33,7 @@ export class MovieController {
 
   @Get()
   getPage(@Query() query, @Res() res) {
-    const currentPage = this.movieService.getPage(
-      query.offset,
-      query.offset + query.limit,
-    );
+    const currentPage = this.movieService.getPage(query.offset, query.limit);
 
     res.send(currentPage);
   }

@@ -15,7 +15,7 @@ export class MovieService {
     );
   }
 
-  public getPage(offset: number = 0, limit: number = 0): MovieModel[] {
+  public getPage(offset: number, limit: number): MovieModel[] {
     return this.data.slice(offset, offset + limit);
   }
 
