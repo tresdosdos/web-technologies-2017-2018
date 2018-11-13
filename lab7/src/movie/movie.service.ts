@@ -1,10 +1,9 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
+import { Sequelize } from 'sequelize-typescript';
 
-import { MovieModel } from './movie.model';
-import { Symbols } from '../symbols';
 import Movie from '../db/models/movie.model';
 import GenreId from '../db/models/genre-id.model';
-import { Sequelize } from 'sequelize-typescript';
+import { Symbols } from '../symbols';
 
 @Injectable()
 export class MovieService {
@@ -31,25 +30,15 @@ export class MovieService {
     });
   }
 
-  public sort(
-    movies,
-    field: string,
-    direction: number,
-  ): MovieModel[] {
+  public async sort({field, direction, offset = 0, limit = 10}) {
     if (direction !== 1 && direction !== -1) {
       throw new BadRequestException();
     }
 
-    return movies.sort((movie1, movie2) => {
-      if (movie1[field] > movie2[field]) {
-        return direction;
-      }
-
-      if (movie1[field] < movie2[field]) {
-        return -1 * direction;
-      }
-
-      return 0;
+    return await this.movie.findAll({
+      offset,
+      limit,
+      order: [`${field}`, direction === 1 ? 'ASC' : 'DESC'],
     });
   }
 

@@ -9,7 +9,6 @@ import {
   Res,
 } from '@nestjs/common';
 
-import { ConfigService } from '../config';
 import { MovieService } from './movie.service';
 import { MOVIE_EXAMPLE } from '../constants';
 
@@ -30,13 +29,6 @@ export class MovieController {
 
   @Get()
   async getPage(@Query() query, @Res() res) {
-    const currentPage = await this.movieService.getPage(query.offset, query.limit);
-
-    res.send(currentPage);
-  }
-
-  @Get('sort')
-  async getSortedData(@Query() query, @Res() res) {
     const propsKeys = Object.keys(MOVIE_EXAMPLE);
 
     if (
@@ -44,17 +36,20 @@ export class MovieController {
       !query.direction ||
       !_.includes(propsKeys, query.field)
     ) {
-      throw new BadRequestException();
+      const currentPage = await this.movieService.getPage(query.offset, query.limit);
+
+      res.send(currentPage);
+    } else {
+      const { field, direction, offset, limit } = query;
+      const sortedMovies = await this.movieService.sort({
+        field,
+        direction,
+        offset,
+        limit,
+      });
+
+      res.send(sortedMovies);
     }
-
-    const firstPage = await this.movieService.getPage(0, 20);
-    const sortedMovies = this.movieService.sort(
-      firstPage,
-      query.field,
-      +query.direction,
-    );
-
-    res.send(sortedMovies);
   }
 
   @Get('id/:id')
