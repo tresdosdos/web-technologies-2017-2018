@@ -33,6 +33,13 @@ export class MovieController {
 
   @Get()
   getPage(@Query() query, @Res() res) {
+    const currentPage = this.movieService.getPage(query.offset, query.limit);
+
+    res.send(currentPage);
+  }
+
+  @Get('sort')
+  getSortedData(@Query() query, @Res() res) {
     const propsKeys = Object.keys(MOVIE_EXAMPLE);
 
     if (
