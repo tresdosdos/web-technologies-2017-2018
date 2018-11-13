@@ -47,8 +47,12 @@ export class MovieController {
         offset,
         limit,
       });
+      const currentPage = this.movieService.getPage(
+        query.offset,
+        query.offset + query.limit,
+      );
 
-      res.send(sortedMovies);
+      res.send(currentPage);
     }
   }
 
