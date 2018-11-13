@@ -33,16 +33,6 @@ export class MovieController {
 
   @Get()
   getPage(@Query() query, @Res() res) {
-    const currentPage = this.movieService.getPage(
-      query.offset,
-      query.offset + query.limit,
-    );
-
-    res.send(currentPage);
-  }
-
-  @Get('sort')
-  getSortedData(@Query() query, @Res() res) {
     const propsKeys = Object.keys(MOVIE_EXAMPLE);
 
     if (
@@ -50,17 +40,22 @@ export class MovieController {
       !query.direction ||
       !_.includes(propsKeys, query.field)
     ) {
-      throw new BadRequestException();
+      const currentPage = this.movieService.getPage(
+        query.offset,
+        query.offset + query.limit,
+      );
+
+      res.send(currentPage);
+    } else {
+      const firstPage = this.movieService.getPage(0, 20);
+      const sortedMovies = this.movieService.sort(
+        firstPage,
+        query.field,
+        +query.direction,
+      );
+
+      res.send(sortedMovies);
     }
-
-    const firstPage = this.movieService.getPage(0, 20);
-    const sortedMovies = this.movieService.sort(
-      firstPage,
-      query.field,
-      +query.direction,
-    );
-
-    res.send(sortedMovies);
   }
 
   @Get('id/:id')
