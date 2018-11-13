@@ -7,14 +7,6 @@ describe('ConfigService', () => {
     configService = new ConfigService('./src/config/.env');
   });
 
-  describe('get', () => {
-    it('should return a field of config', () => {
-      const result = 'data';
-
-      expect(configService.get('DATA')).toBe(result);
-    });
-  });
-
   describe('getData', () => {
     it('should return all fields of config', () => {
       const data = { vote_count: 395,
