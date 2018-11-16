@@ -1,9 +1,7 @@
 import { Module } from '@nestjs/common';
-import { movieProviders } from './movie.providers';
-import { dbProviders } from './db.providers';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  providers: [...movieProviders, ...dbProviders],
-  exports: [...movieProviders, ...dbProviders],
+  imports: [MongooseModule.forRoot('mongodb://127.0.0.1:27017/lab10', { useNewUrlParser: true })],
 })
 export class DbModule {}

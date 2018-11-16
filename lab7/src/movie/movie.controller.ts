@@ -11,10 +11,18 @@ import {
 
 import { MovieService } from './movie.service';
 import { MOVIE_EXAMPLE } from '../constants';
+import { ConfigService } from '../config';
 
 @Controller('movie')
 export class MovieController {
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService, private configService: ConfigService) {}
+
+  @Get('save')
+  async saveJson(@Req() req, @Res() res) {
+    const data = this.configService.getData();
+    const movies = await this.movieService.save(data);
+    res.send(movies);
+  }
 
   @Get('name/:name')
   async getByName(@Req() req, @Res() res) {
@@ -29,30 +37,24 @@ export class MovieController {
 
   @Get()
   async getPage(@Query() query, @Res() res) {
+    const { field, direction, offset, limit } = query;
     const propsKeys = Object.keys(MOVIE_EXAMPLE);
 
     if (
-      !query.field ||
-      !query.direction ||
+      !field ||
+      !direction ||
       !_.includes(propsKeys, query.field)
     ) {
-      const currentPage = await this.movieService.getPage(query.offset, query.limit);
+      const currentPage = await this.movieService.getPage(+query.offset, +query.limit);
 
       res.send(currentPage);
     } else {
-      const { field, direction, offset, limit } = query;
       const sortedMovies = await this.movieService.sort({
         field,
-        direction,
-        offset,
-        limit,
+        direction: +direction,
       });
-      const currentPage = this.movieService.getPage(
-        query.offset,
-        query.offset + query.limit,
-      );
 
-      res.send(currentPage);
+      res.send(sortedMovies);
     }
   }
 

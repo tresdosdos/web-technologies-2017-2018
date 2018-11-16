@@ -1,53 +1,49 @@
-import { BadRequestException, Inject, Injectable } from '@nestjs/common';
-import { Sequelize } from 'sequelize-typescript';
+import { BadRequestException, Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 
-import Movie from '../db/models/movie.model';
-import GenreId from '../db/models/genre-id.model';
-import { Symbols } from '../symbols';
+import { MovieModel } from './movie.model';
 
 @Injectable()
 export class MovieService {
-  constructor(@Inject(Symbols.Movie) private movie: typeof Movie,
-              @Inject(Symbols.GenreId) private genreId: typeof GenreId) {
-  }
+  constructor(@InjectModel('Movie') private movie: Model<MovieModel>) {}
 
   public async getByName(name: string) {
-    const foundMovies = await this.movie.findOne({where: {
-      original_title: {
-        [Sequelize.Op.iLike]: '%' + name + '%',
-      },
-      }, include: [this.genreId]},
-    );
+    const foundMovies = await this.movie.find({
+      original_title: new RegExp('^' + name + '$', 'i'),
+    });
 
-    return foundMovies.toJSON();
+    return foundMovies;
   }
 
-  public async getPage(offset: number, limit: number) {
-    return await this.movie.findAll({
-      offset,
+  public async save(data) {
+    const saved = await this.movie.insertMany(data);
+
+    return saved;
+  }
+
+  public async getPage(skip: number, limit: number) {
+    return await this.movie.find({}, null, {
+      skip,
       limit,
-      include: [this.genreId],
     });
   }
 
-  public async sort({field, direction, offset = 0, limit = 10}) {
+  public async sort({field, direction, skip = 0, limit = 10}) {
     if (direction !== 1 && direction !== -1) {
       throw new BadRequestException();
     }
 
-    return await this.movie.findAll({
-      offset,
+    return await this.movie.find({}, null, {
+      skip,
       limit,
-      order: [`${field}`, direction === 1 ? 'ASC' : 'DESC'],
+      sort: {
+        [field]: direction,
+      },
     });
   }
 
   public async getById(id: number) {
-    return await this.movie.findOne({
-      where: {
-        id,
-      },
-      include: [this.genreId],
-    });
+    return await this.movie.findOne({ id });
   }
 }
