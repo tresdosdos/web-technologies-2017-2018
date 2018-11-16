@@ -6,7 +6,7 @@ import { Injectable } from '@nestjs/common';
 export class ConfigService {
   private readonly data;
 
-  constructor(private filePath: string) {
+  constructor() {
     this.data = fs.readFileSync(path.join(__dirname + '/data.json'));
   }
 
