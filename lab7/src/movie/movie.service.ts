@@ -19,7 +19,11 @@ export class MovieService {
       }, include: [this.genreId]},
     );
 
-    return foundMovies.toJSON();
+    if (!foundMovies) {
+        throw new BadRequestException();
+    }
+
+    return this.buildIds(foundMovies.toJSON());
   }
 
   public async getPage(offset: number, limit: number) {
@@ -35,19 +39,35 @@ export class MovieService {
       throw new BadRequestException();
     }
 
-    return await this.movie.findAll({
+    let movies = await this.movie.findAll({
       offset,
       limit,
       order: [`${field}`, direction === 1 ? 'ASC' : 'DESC'],
     });
+
+    movies = movies.map(movie => movie.toJSON());
+
+    return movies.map(movie => this.buildIds(movie));
   }
 
   public async getById(id: number) {
-    return await this.movie.findOne({
+    const movie = await this.movie.findOne({
       where: {
         id,
       },
       include: [this.genreId],
     });
+
+    if (!movie) {
+      throw new BadRequestException();
+    }
+
+    return this.buildIds(movie.toJSON());
+  }
+
+  private buildIds(movie: Movie) {
+    const genre_ids = movie.genre_ids.map(id => id.value);
+
+    return Object.assign(movie, {genre_ids});
   }
 }
